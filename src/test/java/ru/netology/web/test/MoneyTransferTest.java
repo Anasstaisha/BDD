@@ -1,12 +1,15 @@
 package ru.netology.web.test;
 
 import com.codeborne.selenide.Configuration;
-import lombok.val;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.netology.web.data.DataHelper;
 import ru.netology.web.page.DashboardPage;
 import ru.netology.web.page.LoginPage;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 
 import static com.codeborne.selenide.Selenide.open;
@@ -53,17 +56,5 @@ class MoneyTransferTest {
     assertEquals(expAmountOfMoneyOnFirstCard, actAmountOfMoneyOnFirstCard);
     assertEquals(expAmountOfMoneyOnSecondCard, actAmountOfMoneyOnSecondCard);
   }
-
- /* @Test
-  void shouldTransferMoneyBetweenOwnCardsV3() {
-    var loginPage = open("http://localhost:9999", LoginPageV3.class);
-    var authInfo = DataHelper.getAuthInfo();
-    var verificationPage = loginPage.validLogin(authInfo);
-    var verificationCode = DataHelper.getVerificationCodeFor(authInfo);
-    verificationPage.validVerify(verificationCode);
-    val DashboardPage = new DashboardPage();
-    int value = 1000;
-
-  }*/
 }
 
